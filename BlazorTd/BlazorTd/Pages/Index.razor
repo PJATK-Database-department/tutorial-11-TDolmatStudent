@@ -28,9 +28,9 @@
                         <img src=@student.AvatarUrl style="width:50px; height:50px;">
                     }
                 </th>
-                <td>@student.FirstName</td>
+                <td><a href="students/@student.FirstName/@student.LastName/@student.Birthdate.ToString("dd-MM-yyyy")/@student.Studies">@student.FirstName</a></td>
                 <td>@student.LastName</td>
-                <td>@student.Birthdate.ToString("dd/MM/yyyy")</td>
+                <td>@student.Birthdate.ToString("dd-MM-yyyy")</td>
                 <td>@student.Studies</td>
                 <td>
                     <button type="button" class="btn btn-danger" @onclick="() => DeleteStudent(student)">X</button>
