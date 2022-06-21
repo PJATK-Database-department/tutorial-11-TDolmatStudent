@@ -7,10 +7,10 @@
     <thead>
         <tr>
             <th scope="col">Avatar</th>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-            <th scope="col">Birthdate</th>
-            <th scope="col">Studies</th>
+            <th scope="col"><a href="#" @onclick:preventDefault @onclick="() => SortStudents(0)">First name</a></th>
+            <th scope="col"><a href="#" @onclick:preventDefault @onclick="() => SortStudents(1)">Last name</a></th>
+            <th scope="col"><a href="#" @onclick:preventDefault @onclick="() => SortStudents(2)">Birthdate</a></th>
+            <th scope="col"><a href="#" @onclick:preventDefault @onclick="() => SortStudents(3)">Studies</a></th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -72,5 +72,25 @@
             students.Remove(student);
             return;
         }
+    }
+
+    private void SortStudents(int sortingAttribute)
+    {
+        switch (sortingAttribute)
+        {
+            case 0:
+                students = students.OrderBy(s => s.FirstName).ToList();
+                break;
+            case 1:
+                students = students.OrderBy(s => s.LastName).ToList();
+                break;
+            case 2:
+                students = students.OrderBy(s => s.Birthdate).ToList();
+                break;
+            case 3:
+                students = students.OrderBy(s => s.Studies).ToList();
+                break;
+        }
+
     }
 }
